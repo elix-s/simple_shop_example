@@ -84,7 +84,7 @@ namespace Features.Shop
                 _discountText.text = discountValue + "%";
             }
 
-            if (data.MainIconAddress != string.Empty)
+            if (!string.IsNullOrEmpty(data.MainIconAddress))
             {
                 AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(data.MainIconAddress);
                 await handle.Task;
