@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class ShopWindowView : MonoBehaviour
+namespace Features.Shop
 {
-    [SerializeField] private Transform _transformComponent;
-    
-    public Transform ReturnTransformComponent()
+    public class ShopWindowView : MonoBehaviour
     {
-        return _transformComponent;
+        [SerializeField] private Transform _transformComponent;
+
+        public Transform ReturnTransformComponent()
+        {
+            return _transformComponent;
+        }
     }
 }

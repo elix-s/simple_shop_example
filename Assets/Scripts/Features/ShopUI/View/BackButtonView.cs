@@ -2,19 +2,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class BackButtonView : MonoBehaviour
+namespace Features.Shop
 {
-    [SerializeField] private Button _returnBackButton;
-    private UIService _uiService;
-
-    [Inject]
-    private void Construct(UIService uiService)
+    public class BackButtonView : MonoBehaviour
     {
-        _uiService = uiService;
-    }
+        [SerializeField] private Button _returnBackButton;
+        private UIService _uiService;
 
-    private void Awake()
-    {
-        _returnBackButton.onClick.AddListener(delegate { _uiService.HideShopWindow(); });
+        [Inject]
+        private void Construct(UIService uiService)
+        {
+            _uiService = uiService;
+        }
+
+        private void Awake()
+        {
+            _returnBackButton.onClick.AddListener(delegate { _uiService.HideShopWindow(); });
+        }
     }
 }
