@@ -5,14 +5,20 @@ namespace Features.Shop
 {
     public class ShopWindowController
     {
+        /// <summary>
+        /// Слварь для хранения всех предметов.
+        /// </summary>
         public Dictionary<string, ItemModel> ShopItemsConfig = new Dictionary<string, ItemModel>();
 
+        /// <summary>
+        /// Получение актуально списка предметов из конфигов и парсинг его в словарь.
+        /// </summary>
         public void UpdateShopItems()
         {
             ShopItemsConfig = ParseItemsToDictionary();
         }
 
-        public Dictionary<string, ItemModel> ParseItemsToDictionary()
+        private Dictionary<string, ItemModel> ParseItemsToDictionary()
         {
             var itemDictionary = new Dictionary<string, ItemModel>();
 
@@ -38,7 +44,10 @@ namespace Features.Shop
 
             return itemDictionary;
         }
-
+        
+        /// <summary>
+        /// Создание списка предметов для передачи в окно. Можно создать от 3х до 6.
+        /// </summary>
         public List<string> CreateItemsList(params string[] values)
         {
             if (values.Length < 3 || values.Length > 6)

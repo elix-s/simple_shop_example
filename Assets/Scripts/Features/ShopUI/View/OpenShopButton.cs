@@ -26,8 +26,10 @@ namespace Features.Shop
 
         private async void ShowShop()
         {
+            //вызов окна, в котором будут отображаться панели с предметами
             var shopPanel = await _uiService.ShowShopWindow();
 
+            //вызов первого окна с предметами с указанием названий предметов (можно передать от 3х до 6 предметов)
             var itemsList = _shopWindowController.CreateItemsList("coal", "grass", "mineral",
                 "stone", "rope", "tree");
 
@@ -40,9 +42,10 @@ namespace Features.Shop
                 var mainIconAddress = "mainIcon";
 
                 var shopUIData = new ShopUIData(title, description, itemsList, price, discount, mainIconAddress);
-                _uiService.ShowItemsPanel(shopUIData, shopPanel).Forget();
+                _uiService.ShowItemsPanel(shopUIData, shopPanel).Forget(); //вызов окна;
             }
 
+            //вызов второго окна с предметами
             var itemsList2 = _shopWindowController.CreateItemsList("coal", "grass", "mineral");
 
             if (itemsList2 != null)
@@ -54,7 +57,7 @@ namespace Features.Shop
                 var mainIconAddress = "mainIcon";
 
                 var shopUIData2 = new ShopUIData(title, description, itemsList2, price, discount, mainIconAddress);
-                _uiService.ShowItemsPanel(shopUIData2, shopPanel).Forget();
+                _uiService.ShowItemsPanel(shopUIData2, shopPanel).Forget(); //вызов окна
             }
         }
     }
